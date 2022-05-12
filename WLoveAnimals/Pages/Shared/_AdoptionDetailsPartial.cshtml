@@ -1,0 +1,70 @@
+﻿@model Animal
+@{
+    var photoPath = "~/images/" + (Model.PhotoPath);
+    var showButtons = (bool)ViewData["ShowButtons"];
+}
+
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .flip-card {
+        background-color: transparent;
+        width: 350px;
+        height: 350px;
+        perspective: 1000px;
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .flip-card-front {
+        background-color: azure;
+        color: black;
+    }
+
+    .flip-card-back {
+        background-color: cadetblue;
+        color: white;
+        transform: rotateY(180deg);
+    }
+</style>
+
+
+<div class="flip-card p-3 mb-5 bg-white rounded">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <h5 class="card-title">@Model.Name</h5>
+            <img style="width:290px;height:260px;" src="@photoPath"
+                 asp-append-version="true" />
+        </div>
+        <div class="flip-card-back">
+            <br />
+            <h5 class="card-title">@Model.Name</h5>
+            <p>De acum sunt cel mai bun prieten al tau</p>
+        </div>
+    </div>
+    <a asp-page="/Animals/Detalii" asp-route-ID="@Model.Id"
+       class="btn btn-primary m-1">Detalii</a>
+</div>

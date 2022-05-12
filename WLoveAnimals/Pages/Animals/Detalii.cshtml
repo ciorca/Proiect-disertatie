@@ -1,0 +1,70 @@
+﻿@page "/animals/view/{id:min(1)}" 
+@model WLoveAnimals.Pages.Animals.DetaliiModel
+@{
+    ViewData["Title"] = "Detalii";
+    var photoPath = "~/images/" + (Model.Animal.PhotoPath );
+}
+
+<div class="row justify-content-center m-3">
+    @if (Model.Mesaj != null)
+    {
+        <div class="col-sm-8">
+            <div class="alert alert-primary">
+                @Model.Mesaj
+            </div>
+        </div>
+    }
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.Animal.Name</h1>
+            </div>
+            <div class="card-body text-center">
+                <img class="card-img-top" src="@photoPath" asp-append-version="true" />
+                <h4>Animal ID : @Model.Animal.Id</h4>
+                <h4>Varsta : @Model.Animal.Varsta</h4>
+                <h4>Categorie : @Model.Animal.Categorie</h4>
+
+            </div>
+            <div class="card-footer text-center">
+                <a asp-page="Adopta"
+                   class="btn btn-primary">Inapoi</a>
+                @*<a class="btn btn-success" asp-page="/Animals/Contact">Sunt interesat</a>*@
+
+                <!-- Butonul care activeaza Modalul pentru detalii adoptie -->
+                <button type="button" class="btn btn bg-info text-white m-1" data-toggle="modal" data-target="#suntInteresat">
+                    Sunt interesat
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="suntInteresat" tabindex="-1" role="dialog" aria-labelledby="interesatLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="interesatLabel">Detalii adoptie</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h5>WLoveAnimals</h5>
+                                <br />
+                                <p>Pentru detalii adoptie va rog contactati-ne:</p>
+                                <br />
+                                <p>Email: wloveanimals@mail.com</p>
+                                <p>Telefon: 0755-123.123</p>
+                                <p>Adresa: Cluj-Napoca,str Brasov,nr 69</p>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

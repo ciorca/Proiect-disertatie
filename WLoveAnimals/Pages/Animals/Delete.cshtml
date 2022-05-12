@@ -1,0 +1,15 @@
+﻿@page "{id}"
+@model WLoveAnimals.Pages.Animals.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+    ViewData["ShowButtons"] = false;
+}
+<h1>Confirmare stergere</h1>
+<div class="alert alert-danger">
+    <partial name="_DisplayAnimalPartial" model="Model.Animal" view-data="ViewData" />
+    <h5>Confirmati stergerea? -@Model.Animal.Name</h5>
+    <form method="post">
+        <button type="submit" class="btn btn-danger">Da</button>
+        <a class="btn btn-primary" asp-page="/Animals/Index">Nu</a>
+    </form>
+</div>

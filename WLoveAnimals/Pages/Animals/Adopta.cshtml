@@ -1,0 +1,32 @@
+﻿@page
+@model WLoveAnimals.Pages.Animals.AdoptaModel
+@{
+    ViewData["Title"] = "Adopta";
+    ViewData["ShowButtons"] = true;
+}
+
+<style>
+    .btn {
+        width: 75px;
+    }
+</style>
+<form method="get">
+    <div class="input-group">
+        <input class="form-control" asp-for="SearchTerm" />
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>
+
+<h1>Animale</h1>
+
+
+<div class="card-deck">
+
+    @foreach (var animal in Model.Animals)
+    {
+        <partial name="_AdoptionDetailsPartial" model="animal" view-data="ViewData" />
+    }
+
+</div>
