@@ -1,5 +1,5 @@
-# Proiect-disertatie
-Lucrare de diploma
+# Diploma Thesis
+Diploma Thesis
 # Proiect DASHBOARD
 
-Proiectul prezintă realizarea unei single page application in Razor Pages conectat la o baza de date.Aplicatia prezinta in site de gestionare a unui adapost de animal de catre administrator.
+The project presents the creation of a single page application in razor pages connected to a database.the application presents in the site the management of an animal shelter by the administrator.
