@@ -30,14 +30,14 @@ namespace WLoveAnimals
 
         {
 
-            //adaugam autentificarea pt cookies
+            //we add authentication for cookies
             services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", options =>
             {
                 options.Cookie.Name = "MyCookieAuth";
-                options.LoginPath = "/Account/Login"; //specificam locatia paginii login cu calea aferenta
+                options.LoginPath = "/Account/Login"; //we specify the location of the login page with the related path
 
                 options.AccessDeniedPath = "/Account/AccessDenied";
-                //options.ExpireTimeSpan = TimeSpan.FromSeconds(45);  //setare ca sa dispara cokkies in 45 secunde(dispar si daca se inchide browserul)
+                //options.ExpireTimeSpan = TimeSpan.FromSeconds(45);  //set to disappear cookies in 45 seconds (disappear if browser closes)
             });
             services.AddAuthorization(options =>
            {
