@@ -48,14 +48,14 @@ namespace WLoveAnimals
 
             //services.AddSingleton<IAuthorizationHandler, AdminRequirementHandler>();  // adugam handler-ul din clasa AdminRequirement
 
-            services.AddDbContextPool<AppDbContext>(options =>   //realizarea conexiunii cu baza de date
+            services.AddDbContextPool<AppDbContext>(options =>   //connect with the database
             {
                 options.UseSqlServer(Configuration.GetConnectionString("AnimalDBConnection"));
             });
 
 
             services.AddRazorPages();
-            services.AddScoped<IAnimalsRepository , SQLAnimalRepository>();
+            services.AddScoped<IAnimalsRepository , SQLAnimalRepository>();  
             services.Configure<RouteOptions>(options =>
                  {
                      options.LowercaseUrls = true;

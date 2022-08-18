@@ -9,8 +9,8 @@ using WLoveAnimals.Services;
 namespace WLoveAnimals.Services.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220124151712_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220818150906_spGetAnimalById")]
+    partial class spGetAnimalById
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,7 +27,7 @@ namespace WLoveAnimals.Services.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Categorie")
+                    b.Property<int?>("Categorie")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")

@@ -14,7 +14,6 @@ namespace WLoveAnimals.Services.Migrations
 	                     where Id = @Id
 	                       End";
             migrationBuilder.Sql(procedure);
-
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

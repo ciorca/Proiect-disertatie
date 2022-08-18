@@ -24,12 +24,12 @@ namespace WLoveAnimals.Services
         {
             context.Database.ExecuteSqlRaw("spInsertAnimal {0}, {1}, {2}, {3}",
                                    newAnimal.Name,
+                                   newAnimal.PhotoPath,
                                    newAnimal.Categorie,
-                                   newAnimal.Varsta,
-                                   newAnimal.PhotoPath);
+                                   newAnimal.Varsta
+                                   );
             return newAnimal;
         }
-
 
         public Animal Delete(int id)
         {
@@ -48,6 +48,7 @@ namespace WLoveAnimals.Services
             return context.Animals
                        .FromSqlRaw<Animal>("SELECT * FROM Animals")
                        .ToList();
+                        
         }
 
         public Animal GetAnimal(int id)

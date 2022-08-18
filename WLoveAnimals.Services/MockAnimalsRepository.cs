@@ -45,7 +45,7 @@ namespace WLoveAnimals.Services
         {
             return _animalList;
         }
-        public Animal GetAnimal(int id)  //returneaza un anumit id.
+        public Animal GetAnimal(int id)  //returns a certain id.
         {
             return _animalList.FirstOrDefault(e => e.Id == id);
         }

@@ -14,7 +14,7 @@ namespace WLoveAnimals.Services.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: false),
                     PhotoPath = table.Column<string>(nullable: true),
-                    Categorie = table.Column<int>(nullable: false),
+                    Categorie = table.Column<int>(nullable: true),
                     Varsta = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
