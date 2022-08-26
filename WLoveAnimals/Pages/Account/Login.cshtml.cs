@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -12,12 +13,20 @@ namespace WLoveAnimals.Pages.Account
 {
     public class LoginModel : PageModel
     {
+        private readonly SignInManager<IdentityUser> signInManager;
+
         [BindProperty]
-        public Credential Credential { get; set; }  //creeam modelul paginii
+        public Login Model { get; set; }
+        //public Credential Credential { get; set; }  //creeam modelul paginii
+
+        public LoginModel(SignInManager<IdentityUser> signInManager)
+        {
+            this.signInManager = signInManager;
+        }
         public void OnGet()
         {
         }
-        public async Task<IActionResult> OnPostAsync()
+        /*public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid) return Page(); 
            
@@ -39,15 +48,41 @@ namespace WLoveAnimals.Pages.Account
             }
             return Page();
 
+        }*/
+
+        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        {
+            if (ModelState.IsValid)
+            {
+                var identityResult = await signInManager.PasswordSignInAsync(Model.Email, Model.Password, Model.RememberMe, false);
+                if (identityResult.Succeeded)
+                {
+                    if (returnUrl == null || returnUrl == "/")
+                    {
+                        return RedirectToPage("/Index");
+                    }
+                    else
+                    {
+                        return RedirectToPage(returnUrl);
+                    }
+                }
+
+                ModelState.AddModelError("", "Username or Passwordis incorrect");
+            }
+            return Page();
         }
-    }
-    public class Credential
-    {
-        [Required]  //adaugam validare
-        [Display(Name ="User Name")]
-        public string UserName { get; set; }
-        [Required]
-        [DataType(DataType.Password)]
-        public string Password{ get; set; }
+
+        public class Login
+        {
+            [Required]  //adaugam validare
+            [DataType(DataType.EmailAddress)]
+            //[Display(Name ="User Name")]
+            public string Email { get; set; }
+            [Required]
+            [DataType(DataType.Password)]
+            public string Password { get; set; }
+
+            public bool RememberMe { get; set; }
+        }
     }
 }

@@ -7,6 +7,9 @@ namespace WLoveAnimals.Models
     {
         None,
         Dogs,
-        Cats
+        Cats,
+        Rabits,
+        Birds,
+        SmallPets
     }
 }

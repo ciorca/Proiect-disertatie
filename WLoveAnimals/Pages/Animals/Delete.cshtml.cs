@@ -10,7 +10,7 @@ using WLoveAnimals.Services;
 
 namespace WLoveAnimals.Pages.Animals
 {
-    [Authorize]
+    //[Authorize]
     public class DeleteModel : PageModel
     {
         private readonly IAnimalsRepository animalsRepository;

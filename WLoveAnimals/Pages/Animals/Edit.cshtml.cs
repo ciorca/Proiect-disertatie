@@ -13,7 +13,7 @@ using WLoveAnimals.Services;
 
 namespace WLoveAnimals.Pages.Animals
 {
-    [Authorize]
+    //[Authorize]
 
     public class EditModel : PageModel
     {

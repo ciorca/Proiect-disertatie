@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -11,7 +12,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WLoveAnimals.Pages.Authorization;
+using WLoveAnimals.Pages.Account;
+//using WLoveAnimals.Pages.Authorization;
 using WLoveAnimals.Services;
 
 namespace WLoveAnimals
@@ -30,21 +32,22 @@ namespace WLoveAnimals
 
         {
 
-            //we add authentication for cookies
-            services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", options =>
-            {
-                options.Cookie.Name = "MyCookieAuth";
-                options.LoginPath = "/Account/Login"; //we specify the location of the login page with the related path
+            ////we add authentication for cookies
+            //services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", options =>
+            //{
+            //    options.Cookie.Name = "MyCookieAuth";
+            //    options.LoginPath = "/Account/Login"; //we specify the location of the login page with the related path
+                
 
-                options.AccessDeniedPath = "/Account/AccessDenied";
-                //options.ExpireTimeSpan = TimeSpan.FromSeconds(45);  //set to disappear cookies in 45 seconds (disappear if browser closes)
-            });
-            services.AddAuthorization(options =>
-           {
-               options.AddPolicy("AdminOnly",
-                   policy => policy.RequireClaim("Admin"));
-                                    //.Requirements.Add(new AdminRequirement(3)));
-                });
+            //    options.AccessDeniedPath = "/Account/AccessDenied";
+            //    //options.ExpireTimeSpan = TimeSpan.FromSeconds(45);  //set to disappear cookies in 45 seconds (disappear if browser closes)
+            //});
+           // services.AddAuthorization(options =>
+           //{
+           //    options.AddPolicy("AdminOnly",
+           //        policy => policy.RequireClaim("Admin"));
+           //                         //.Requirements.Add(new AdminRequirement(3)));
+           //     });
 
             //services.AddSingleton<IAuthorizationHandler, AdminRequirementHandler>();  // adugam handler-ul din clasa AdminRequirement
 
@@ -53,6 +56,8 @@ namespace WLoveAnimals
                 options.UseSqlServer(Configuration.GetConnectionString("AnimalDBConnection"));
             });
 
+            // for register an user
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
 
             services.AddRazorPages();
             services.AddScoped<IAnimalsRepository , SQLAnimalRepository>();  

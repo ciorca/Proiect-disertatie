@@ -1,15 +1,19 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WLoveAnimals</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body style="background-color: #f5d6f4">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar navbar-light" style="background-color: #e3f2fd"; border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar navbar-light" style="background-color: #d049cb" border-bottom box-shadow mb-3>
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">WLoveAnimals</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -17,16 +21,18 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        @*<li class="nav-item">
-          <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-        </li>*@
-                        @if (User.Identity.IsAuthenticated)
 
-                        {
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <ul class="navbar-nav flex-grow-1">
+                            @*<li class="nav-item">
+                  <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                </li>*@
+
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Index">Animale</a>
                             </li>
+
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Edit">Adauga animal</a>
                             </li>
@@ -36,21 +42,77 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Contact">Contact</a>
                             </li>
-                        }
-                        else
-                        { 
+                        </ul>
+                        @*<ul class="navbar-nav d-flex justify-content-end flex-grow-1">
+                <li class="nav-item">
+                    <a class="btn btn-primary" asp-area=""  asp-page="/Logout">Logout</a>
+                </li>
+
+            </ul >*@
+
+                    }
+                    else
+                    {
+
+
+                        <ul class="navbar-nav d-flex justify-content-end flex-grow-1">
+
+                            @*<li class="nav-item">
+                    <a asp-page="/Login" class="btn btn btn-primary">Login</a>
+                </li>*@
+                            <li class="nav-item">
+                                <a asp-page="/Account/Register" class="btn">Register</a>
+                            </li>
+                        </ul>
+
+                        <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Adopta">Adopta animal</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Contact">Contact</a>
-                            </li>
-                        }
 
                         </ul>
+
+                        @*<li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Index">Animale</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Contact">Contact</a>
+            </li>*@
+
+                    }
+
+
+
+                    @*  @if (User.Identity.IsAuthenticated)
+
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Index">Animale</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Edit">Adauga animal</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Adopta">Adopta animal</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Contact">Contact</a>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Adopta">Adopta animal</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Contact">Contact</a>
+            </li>
+        }*@
+
+
                 </div>
                 <div class="mr-2">
-                    <partial name="_LoginStatusPartial"/>
+                    <partial name="_LoginStatusPartial" />
                 </div>
             </div>
         </nav>
@@ -68,6 +130,7 @@
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
