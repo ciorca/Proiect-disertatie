@@ -11,9 +11,9 @@
 
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body style="background-color: #f5d6f4">
+<body style="background-color: #edf5ea">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar navbar-light" style="background-color: #d049cb" border-bottom box-shadow mb-3>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar navbar-light" style="background-color: #bed8b2" border-bottom box-shadow mb-3>
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">WLoveAnimals</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -21,6 +21,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+
+
 
                     @if (SignInManager.IsSignedIn(User))
                     {
@@ -39,10 +41,10 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Adopta">Adopta animal</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Contact">Contact</a>
-                            </li>
+
                         </ul>
+
+
                         @*<ul class="navbar-nav d-flex justify-content-end flex-grow-1">
                 <li class="nav-item">
                     <a class="btn btn-primary" asp-area=""  asp-page="/Logout">Logout</a>
@@ -68,6 +70,9 @@
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Adopta">Adopta animal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Contact">Contact</a>
                             </li>
 
                         </ul>

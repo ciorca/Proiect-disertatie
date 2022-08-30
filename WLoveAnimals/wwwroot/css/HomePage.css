@@ -1,0 +1,41 @@
+﻿body {
+    background-image: url(/imagini/pexels-pixabay-45170.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment:fixed;
+    color: white;
+}
+.title{
+    margin: 0 auto;
+    width:100%;
+    max-width: 40rem;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.carousel {
+    width: 100%;
+    max-width: 900px;
+    padding: 2.5rem 2.5rem;
+    border-radius: 1rem;
+    border: 0.5px solid transparent;
+    backdrop-filter: blur(1rem);
+    box-shadow: 1.3rem 1.30rem 1.3rem rgba(0,0,0,0.5);
+    border-top-color: rgba(225,225,225,0.5);
+    border-left-color: rgba(225,225,225,0.5);
+    border-bottom-color: rgba(225,225,225,0.1);
+    border-right-color: rgba(225,225,225,0.1);
+}
+
+.cb1 {
+    background-color: rgba(225,225,225,0.1);
+    
+}
+
+.cb2{
+    color: black;
+    background: linear-gradient(to right bottom, rgba(225,225,225,0.5), rgba(225,225,225,0.3));
+}
+.card-number{
+
+}

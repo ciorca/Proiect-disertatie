@@ -37,19 +37,19 @@ namespace WLoveAnimals
             //{
             //    options.Cookie.Name = "MyCookieAuth";
             //    options.LoginPath = "/Account/Login"; //we specify the location of the login page with the related path
-                
+
 
             //    options.AccessDeniedPath = "/Account/AccessDenied";
             //    //options.ExpireTimeSpan = TimeSpan.FromSeconds(45);  //set to disappear cookies in 45 seconds (disappear if browser closes)
             //});
-           // services.AddAuthorization(options =>
-           //{
-           //    options.AddPolicy("AdminOnly",
-           //        policy => policy.RequireClaim("Admin"));
-           //                         //.Requirements.Add(new AdminRequirement(3)));
-           //     });
+            // services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("AdminOnly",
+            //        policy => policy.RequireClaim("Admin"));
+            //                         //.Requirements.Add(new AdminRequirement(3)));
+            //     });
 
-            //services.AddSingleton<IAuthorizationHandler, AdminRequirementHandler>();  // adugam handler-ul din clasa AdminRequirement
+            //services.AddSingleton<IAuthorizationHandler, AdminRequirementHandler>();  // add handler-ul from  AdminRequirement class
 
             services.AddDbContextPool<AppDbContext>(options =>   //connect with the database
             {
