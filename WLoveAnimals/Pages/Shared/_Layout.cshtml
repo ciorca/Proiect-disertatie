@@ -8,12 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WLoveAnimals</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    
 
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body style="background-color: #edf5ea">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar navbar-light" style="background-color: #bed8b2" border-bottom box-shadow mb-3>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar navbar-light" style="text-align: center; background-color: lightslategray; font-family: 'Californian FB';font-size:18px;">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">WLoveAnimals</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -28,11 +29,11 @@
                     {
                         <ul class="navbar-nav flex-grow-1">
                             @*<li class="nav-item">
-                  <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                </li>*@
+                                  <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                                </li>*@
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Index">Animale</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Index">Animals</a>
                             </li>
 
                             <li class="nav-item">
@@ -46,11 +47,11 @@
 
 
                         @*<ul class="navbar-nav d-flex justify-content-end flex-grow-1">
-                <li class="nav-item">
-                    <a class="btn btn-primary" asp-area=""  asp-page="/Logout">Logout</a>
-                </li>
+                                <li class="nav-item">
+                                    <a class="btn btn-primary" asp-area=""  asp-page="/Logout">Logout</a>
+                                </li>
 
-            </ul >*@
+                            </ul >*@
 
                     }
                     else
@@ -60,8 +61,8 @@
                         <ul class="navbar-nav d-flex justify-content-end flex-grow-1">
 
                             @*<li class="nav-item">
-                    <a asp-page="/Login" class="btn btn btn-primary">Login</a>
-                </li>*@
+                                    <a asp-page="/Login" class="btn btn btn-primary">Login</a>
+                                </li>*@
                             <li class="nav-item">
                                 <a asp-page="/Account/Register" class="btn">Register</a>
                             </li>
@@ -78,11 +79,11 @@
                         </ul>
 
                         @*<li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Index">Animale</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Contact">Contact</a>
-            </li>*@
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Index">Animale</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Contact">Contact</a>
+                            </li>*@
 
                     }
 
@@ -90,29 +91,29 @@
 
                     @*  @if (User.Identity.IsAuthenticated)
 
-        {
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Index">Animale</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Edit">Adauga animal</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Adopta">Adopta animal</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Contact">Contact</a>
-            </li>
-        }
-        else
-        {
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Adopta">Adopta animal</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Contact">Contact</a>
-            </li>
-        }*@
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Index">Animale</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Edit">Adauga animal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Adopta">Adopta animal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Contact">Contact</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Adopta">Adopta animal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Animals/Contact">Contact</a>
+                            </li>
+                        }*@
 
 
                 </div>
@@ -135,9 +136,10 @@
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    
+
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://kit.fontawesome.com/e1ab04f26e.js" crossorigin="anonymous"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

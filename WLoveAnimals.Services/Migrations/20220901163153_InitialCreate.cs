@@ -16,7 +16,8 @@ namespace WLoveAnimals.Services.Migrations
                     Name = table.Column<string>(nullable: false),
                     PhotoPath = table.Column<string>(nullable: true),
                     Categorie = table.Column<int>(nullable: true),
-                    Varsta = table.Column<string>(nullable: false)
+                    Varsta = table.Column<string>(nullable: false),
+                    Oras = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

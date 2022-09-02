@@ -22,6 +22,8 @@ namespace WLoveAnimals.Models
 
         public string Varsta { get; set; }
 
+        public string Oras { get; set; }
+
     }
 
 }

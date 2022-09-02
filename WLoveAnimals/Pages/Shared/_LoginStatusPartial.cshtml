@@ -3,12 +3,19 @@
 {
     <form method="post" class="form-inline" asp-page="/Account/Logout">
         Bun venit @User.Identity.Name
-        <button type="submit" class="ml-2 btn btn-link">Logout</button>
+        <button type="submit" class="ml-2 btn btn-link">
+            <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
 
     </form>
 
 }
 else
-            {
-                <a class="btn btn-link" asp-page="/Account/Login">Login</a>
-            }
+{
+<a class="btn btn-link" asp-page="/Account/Login">
+    <i class="fa-regular fa-user"></i>
+</a>
+
+    
+
+}

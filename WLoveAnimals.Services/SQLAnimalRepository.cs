@@ -22,11 +22,12 @@ namespace WLoveAnimals.Services
        
         public Animal Add(Animal newAnimal)
         {
-            context.Database.ExecuteSqlRaw("spInsertAnimal {0}, {1}, {2}, {3}",
+            context.Database.ExecuteSqlRaw("spInsertAnimal {0}, {1}, {2}, {3} , {4}",
                                    newAnimal.Name,
                                    newAnimal.PhotoPath,
                                    newAnimal.Categorie,
-                                   newAnimal.Varsta
+                                   newAnimal.Varsta,
+                                   newAnimal.Oras
                                    );
             return newAnimal;
         }
@@ -67,7 +68,7 @@ namespace WLoveAnimals.Services
                 return context.Animals;
             }
             return context.Animals.Where(e => e.Name.Contains(searchTerm) ||
-                                            e.Varsta.Contains(searchTerm));
+                                            e.Varsta.Contains(searchTerm) || e.Oras.Contains(searchTerm));
         }
 
         public Animal Update(Animal updatedAnimal)

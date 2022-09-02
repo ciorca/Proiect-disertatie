@@ -39,3 +39,13 @@
 .card-number{
 
 }
+
+.icon::before {
+    display: none;
+}
+
+.login::before {
+    font: var(--fa-font-solid);
+    content: "\f007";
+}
+

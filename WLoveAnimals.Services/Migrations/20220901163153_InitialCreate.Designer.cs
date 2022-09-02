@@ -10,7 +10,7 @@ using WLoveAnimals.Services;
 namespace WLoveAnimals.Services.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220825155837_InitialCreate")]
+    [Migration("20220901163153_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -229,6 +229,9 @@ namespace WLoveAnimals.Services.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Oras")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhotoPath")
